@@ -64,7 +64,7 @@ function setStatusText(id,text){
 }
 async function updatePublicStatus(){
   try{
-    const response=await fetch('/api/status',{headers:{'Accept':'application/json'},cache:'no-store'});
+    const response=await fetch('https://api.james-daly.ie/api/status',{headers:{'Accept':'application/json'},cache:'no-store'});
     if(!response.ok)throw new Error();
     const status=await response.json();
     setStatusText('overallStatus',status.ok?'ONLINE':'DEGRADED');
@@ -134,7 +134,7 @@ if(contactForm){
     contactStatus.textContent='Passing your message to the homelab API…';
 
     try{
-      const response=await fetch('/api/contact',{
+      const response=await fetch('https://api.james-daly.ie/api/contact',{
         method:'POST',
         headers:{'Content-Type':'application/json'},
         body:JSON.stringify(payload)
