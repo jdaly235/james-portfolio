@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="James Daly — network infrastructure engineer and homelab builder.">
+  <meta name="theme-color" content="#07111f">
+  <title>James Daly | Network Infrastructure Engineer</title>
+  <link rel="stylesheet" href="styles.css?v=6">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="page-grid" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="James Daly home"><span>JD</span></a>
+    <nav id="nav" aria-label="Primary navigation">
+      <a href="#about">About</a>
+      <a href="#role">Role</a>
+      <a href="#lab">Lab</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-button" id="themeToggle" aria-label="Toggle colour theme" title="Toggle theme">◐</button>
+      <button class="menu-button" id="menuButton" aria-expanded="false" aria-controls="nav">Menu</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero shell" id="top">
+      <div class="hero-copy reveal">
+        <p class="eyebrow"><span class="status-dot"></span> Network infrastructure · homelab engineering</p>
+        <h1>Building reliable infrastructure <span>at work and at home.</span></h1>
+        <p class="hero-lead">I’m James Daly, a full-time Implementation Engineer at Vodafone. I work with network infrastructure professionally and use my homelab to explore secure hosting, Linux, DNS, routing, remote access and automation.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#projects">Explore projects <span>↘</span></a>
+          <a class="button secondary" href="#role">View current role</a>
+        </div>
+        <div class="hero-facts" aria-label="Key facts">
+          <div><strong>2026</strong><span>Joined Vodafone full-time</span></div>
+          <div><strong>24/7</strong><span>Self-hosted lab mindset</span></div>
+          <div><strong>Hands-on</strong><span>Build, test, troubleshoot</span></div>
+        </div>
+      </div>
+
+      <aside class="ops-panel reveal" aria-label="Public infrastructure status">
+        <div class="panel-title"><span>PUBLIC / STATUS</span><span class="live-pill" id="overallStatus">CHECKING</span></div>
+        <div class="ops-row"><span>Portfolio</span><b id="portfolioStatus">Checking</b><i></i></div>
+        <div class="ops-row"><span>Edge route</span><b id="edgeStatus">Checking</b><i></i></div>
+        <div class="ops-row"><span>Contact API</span><b id="apiStatus">Checking</b><i></i></div>
+        <div class="ops-row"><span>Security check</span><b id="turnstileStatus">Checking</b><i></i></div>
+        <div class="ops-row"><span>Backend uptime</span><b id="backendUptime">—</b><i></i></div>
+        <div class="panel-footer"><span id="statusVersion">Portfolio infrastructure</span><span id="localTime">--:--</span></div>
+      </aside>
+    </section>
+
+    <section class="intro shell section" id="about">
+      <div class="section-label">01 / About</div>
+      <div class="intro-grid">
+        <h2>I learn best by turning ideas into working systems.</h2>
+        <div class="prose">
+          <p>My professional work gives me exposure to carrier-grade network implementation, commissioning, troubleshooting and delivery. My homelab gives me space to experiment, document decisions and understand each layer end to end.</p>
+          <p>This site is both a personal portfolio and one of the services running through that infrastructure. It focuses on practical projects, the problems they solved and the lessons taken from them.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="role-section section" id="role">
+      <div class="shell">
+        <div class="section-label light">02 / Current role</div>
+        <div class="role-layout">
+          <div class="role-heading reveal">
+            <p class="role-date">July 2026 — Present</p>
+            <h2>Implementation Engineer</h2>
+            <p class="role-company">Vodafone Ireland</p>
+          </div>
+          <div class="role-details reveal">
+            <p class="role-summary">Working full-time on the implementation and delivery of telecommunications network infrastructure, with a focus on reliable commissioning, technical troubleshooting and accurate documentation.</p>
+            <div class="responsibility-grid">
+              <article><span>01</span><h3>Implementation</h3><p>Configure, stage and commission Cisco network equipment for site delivery.</p></article>
+              <article><span>02</span><h3>Troubleshooting</h3><p>Investigate faults across planned and live network environments with engineering teams.</p></article>
+              <article><span>03</span><h3>Backhaul planning</h3><p>Support NFN and backhaul capacity checks for network arcs and site requirements.</p></article>
+              <article><span>04</span><h3>Operational delivery</h3><p>Maintain implementation records, device onboarding requests and proof-of-work documentation.</p></article>
+            </div>
+            <div class="role-tech"><span>Cisco IOS-XR</span><span>NCS platforms</span><span>ASR 920</span><span>TCP/IP</span><span>Network commissioning</span><span>Documentation</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="lab-section shell section" id="lab">
+      <div class="section-heading">
+        <div><div class="section-label">03 / Homelab</div><h2>An infrastructure playground with real services.</h2></div>
+        <p>The lab is designed around secure access, clear service boundaries and repeatable troubleshooting rather than simply running as many applications as possible.</p>
+      </div>
+
+      <div class="topology" aria-label="Interactive homelab topology">
+        <svg class="topology-lines" viewBox="0 0 1000 390" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M120 195 C230 195 250 195 345 195" />
+          <path d="M455 195 C550 195 570 95 665 95" />
+          <path d="M455 195 C550 195 570 195 665 195" />
+          <path d="M455 195 C550 195 570 295 665 295" />
+          <circle cx="230" cy="195" r="4"/><circle cx="550" cy="195" r="4"/>
+        </svg>
+        <button class="node internet" data-node="Public traffic enters through Cloudflare rather than through directly exposed inbound ports."><b>Internet</b><span>Public edge</span></button>
+        <button class="node tunnel" data-node="A named Cloudflare Tunnel maps selected hostnames to specific local services."><b>Cloudflare</b><span>DNS + tunnel</span></button>
+        <button class="node nginx" data-node="Nginx serves the portfolio and provides predictable HTTP routing inside the host."><b>Nginx</b><span>Web routing</span></button>
+        <button class="node dns" data-node="Pi-hole provides local DNS filtering and visibility into client requests."><b>Pi-hole</b><span>Private DNS</span></button>
+        <button class="node vpn" data-node="Tailscale provides encrypted private access to internal services from trusted devices."><b>Tailscale</b><span>Remote access</span></button>
+        <button class="node host" data-node="Ubuntu hosts the core services and manages startup, storage, networking and updates."><b>Ubuntu host</b><span>Core platform</span></button>
+        <div class="node-detail" id="nodeDetail">Select a node to see what it does.</div>
+      </div>
+    </section>
+
+    <section class="projects-section section" id="projects">
+      <div class="shell">
+        <div class="section-heading">
+          <div><div class="section-label">04 / Projects</div><h2>Selected infrastructure work</h2></div>
+          <div class="filters" role="group" aria-label="Project filters">
+            <button class="filter active" data-filter="all">All</button>
+            <button class="filter" data-filter="network">Network</button>
+            <button class="filter" data-filter="hosting">Hosting</button>
+            <button class="filter" data-filter="systems">Systems</button>
+          </div>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card featured" data-category="network hosting" tabindex="0" data-title="Secure public hosting with Cloudflare Tunnel" data-description="Built and validated a named Cloudflare Tunnel for james-daly.ie, routing the apex and www hostnames to an Nginx service on the Ubuntu host without opening an inbound web port. The project covered DNS conflicts, ingress validation, systemd service management and origin verification." data-tech="Cloudflare Tunnel|DNS|Nginx|Linux|TLS">
+            <div class="project-top"><span>01</span><span>Network / Hosting</span></div><h3>Secure public hosting</h3><p>This portfolio is published through the homelab using Cloudflare Tunnel and Nginx.</p><div class="project-meta"><span>No inbound port exposure</span><button aria-label="Open project">↗</button></div>
+          </article>
+          <article class="project-card" data-category="network" tabindex="0" data-title="Private remote access with Tailscale" data-description="Deployed Tailscale to reach internal services from trusted devices and worked through local addressing, route selection, firewall behaviour and service bindings when connectivity did not behave as expected." data-tech="Tailscale|VPN|Routing|Firewall|Linux">
+            <div class="project-top"><span>02</span><span>Network</span></div><h3>Private remote access</h3><p>Encrypted access to internal services without exposing them publicly.</p><div class="project-meta"><span>Identity-based connectivity</span><button aria-label="Open project">↗</button></div>
+          </article>
+          <article class="project-card" data-category="network systems" tabindex="0" data-title="DNS filtering and local visibility" data-description="Introduced Pi-hole into the home network to provide DNS-level filtering, client visibility and a controlled place to test resolver and router behaviour." data-tech="Pi-hole|DNS|DHCP|Raspberry Pi|Networking">
+            <div class="project-top"><span>03</span><span>Network / Systems</span></div><h3>Local DNS platform</h3><p>Filtering, request visibility and local network experimentation through Pi-hole.</p><div class="project-meta"><span>DNS-first control</span><button aria-label="Open project">↗</button></div>
+          </article>
+          <article class="project-card" data-category="hosting systems" tabindex="0" data-title="Ubuntu service host" data-description="Built and maintained an Ubuntu server as the foundation for self-hosted services, including systemd-managed components, persistent storage, Docker workloads and repeatable service checks." data-tech="Ubuntu|systemd|Docker|Storage|SSH">
+            <div class="project-top"><span>04</span><span>Hosting / Systems</span></div><h3>Linux service platform</h3><p>A stable Ubuntu base for hosting, storage, networking and remote administration.</p><div class="project-meta"><span>Core lab platform</span><button aria-label="Open project">↗</button></div>
+          </article>
+          <article class="project-card" data-category="network hosting" tabindex="0" data-title="Reverse proxy and hostname routing" data-description="Configured hostname-based routing for local web services, separating public and private access patterns while centralising TLS and service destinations." data-tech="Nginx Proxy Manager|Reverse Proxy|TLS|DNS|HTTP">
+            <div class="project-top"><span>05</span><span>Network / Hosting</span></div><h3>Service routing</h3><p>Clear hostname routing and centralised access control for internal web services.</p><div class="project-meta"><span>Layer 7 routing</span><button aria-label="Open project">↗</button></div>
+          </article>
+          <article class="project-card" data-category="systems" tabindex="0" data-title="Storage and resilience" data-description="Built a home server with multi-disk storage and RAID, focusing on capacity, failure tolerance, service persistence and practical recovery considerations." data-tech="RAID|Linux|Storage|Backups|Hardware">
+            <div class="project-top"><span>06</span><span>Systems</span></div><h3>Storage resilience</h3><p>Multi-disk storage designed around availability, recovery and expansion.</p><div class="project-meta"><span>RAID-backed storage</span><button aria-label="Open project">↗</button></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="skills-section shell section" id="skills">
+      <div class="section-heading">
+        <div><div class="section-label">05 / Skills</div><h2>Professional foundations, tested through projects.</h2></div>
+        <p>Click a category to expand the areas I currently work with and continue developing.</p>
+      </div>
+      <div class="skill-grid">
+        <button class="skill-card active" data-skill="networking"><span>01</span><b>Networking</b><small>Routing, switching and implementation</small></button>
+        <button class="skill-card" data-skill="linux"><span>02</span><b>Linux & systems</b><small>Hosting and administration</small></button>
+        <button class="skill-card" data-skill="security"><span>03</span><b>Secure access</b><small>Tunnels, VPN and DNS</small></button>
+        <button class="skill-card" data-skill="web"><span>04</span><b>Web infrastructure</b><small>HTTP, reverse proxy and frontend</small></button>
+      </div>
+      <div class="skill-detail" id="skillDetail">
+        <div><span>Current focus</span><h3>Networking</h3><p>Working knowledge developed through implementation work and practical troubleshooting across professional and home environments.</p></div>
+        <div class="skill-tags"><span>Cisco IOS / IOS-XR</span><span>TCP/IP</span><span>VLANs</span><span>BGP</span><span>OSPF</span><span>Commissioning</span><span>Backhaul planning</span></div>
+      </div>
+    </section>
+
+    <section class="timeline-section section">
+      <div class="shell">
+        <div class="section-label">06 / Journey</div>
+        <h2>From learning the fundamentals to implementing live networks.</h2>
+        <div class="timeline">
+          <article><span>Foundation</span><h3>QQI networking studies</h3><p>Built fundamentals across hardware, operating systems, virtualisation, routing, switching and network security.</p></article>
+          <article><span>Development</span><h3>Vodafone network apprenticeship</h3><p>Combined structured study with practical exposure to planning, staging, implementation and project delivery.</p></article>
+          <article class="current"><span>July 2026 — Present</span><h3>Implementation Engineer, Vodafone</h3><p>Working full-time on network implementation, commissioning, troubleshooting and delivery.</p></article>
+          <article><span>Always ongoing</span><h3>Homelab engineering</h3><p>Continuing to build practical experience in Linux, secure access, DNS, hosting and automation.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact shell section" id="contact">
+      <div class="contact-card contact-layout">
+        <div class="contact-intro">
+          <div class="section-label light">07 / Contact</div>
+          <h2>Let’s talk networking, infrastructure or homelabs.</h2>
+          <p>Send a general enquiry through this site. The message is passed to a private Discord channel by a small API running in my homelab.</p>
+          <div class="contact-route" aria-label="Message delivery route">
+            <span>Portfolio</span><b>→</b><span>Contact API</span><b>→</b><span>Private Discord</span>
+          </div>
+        </div>
+
+        <form id="contactForm" class="contact-form" novalidate>
+          <div class="form-grid">
+            <label>
+              <span>Name</span>
+              <input name="name" type="text" autocomplete="name" minlength="2" maxlength="80" required>
+            </label>
+            <label>
+              <span>Email</span>
+              <input name="email" type="email" autocomplete="email" maxlength="160" required>
+            </label>
+          </div>
+          <label>
+            <span>Subject</span>
+            <input name="subject" type="text" minlength="3" maxlength="120" required>
+          </label>
+          <label>
+            <span>Message</span>
+            <textarea name="message" rows="6" minlength="10" maxlength="2000" required></textarea>
+          </label>
+          <label class="website-field" aria-hidden="true">
+            <span>Website</span>
+            <input name="website" type="text" tabindex="-1" autocomplete="off">
+          </label>
+          <div
+            class="cf-turnstile"
+            data-sitekey="0x4AAAAAAD0jNA77yhaukUUZ"
+            data-action="portfolio-contact">
+          </div>
+          <div class="form-footer">
+            <button class="button light-button" id="contactSubmit" type="submit">Send enquiry <span>↗</span></button>
+            <p id="contactStatus" class="contact-status" role="status" aria-live="polite"></p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer shell">
+    <span>James Daly</span>
+    <span>Network Infrastructure Engineer · Dublin</span>
+    <div class="footer-links"><button type="button" id="privacyOpen">Privacy & cookies</button><a href="#top">Back to top ↑</a></div>
+  </footer>
+
+
+  <section class="consent-banner" id="consentBanner" aria-label="Privacy preferences" aria-live="polite" hidden>
+    <div class="consent-copy">
+      <strong>Privacy preferences</strong>
+      <p>This site uses essential browser storage to remember your consent choice. Optional preference storage can remember your colour theme. There are no advertising or analytics cookies.</p>
+    </div>
+    <div class="consent-actions">
+      <button class="consent-link" type="button" id="consentDetails">Details</button>
+      <button class="button consent-essential" type="button" id="essentialOnly">Essential only</button>
+      <button class="button primary" type="button" id="acceptPreferences">Allow preferences</button>
+    </div>
+  </section>
+
+  <dialog id="privacyDialog" class="privacy-dialog">
+    <button class="modal-close privacy-close" aria-label="Close privacy details">×</button>
+    <p class="modal-label">Privacy & cookies</p>
+    <h2>Your choices on this site</h2>
+    <div class="privacy-content">
+      <section>
+        <h3>Essential storage</h3>
+        <p>A small browser-storage value records whether you selected essential-only or allowed preferences. This prevents the banner from appearing on every visit.</p>
+      </section>
+      <section>
+        <h3>Preference storage</h3>
+        <p>When allowed, the site remembers whether you selected the light or dark colour theme. If you choose essential-only, theme changes apply only for the current page session.</p>
+      </section>
+      <section>
+        <h3>Contact form</h3>
+        <p>When you submit the form, the details you enter are sent to a private Discord channel through the contact API. The API stores an enquiry reference, timestamp, submitted fields and a one-way hash of the source IP for rate limiting and audit purposes.</p>
+      </section>
+      <section>
+        <h3>Infrastructure providers</h3>
+        <p>Cloudflare provides DNS, TLS and tunnel services and may use strictly necessary security mechanisms when delivering the site. This portfolio does not load advertising trackers or third-party analytics.</p>
+      </section>
+    </div>
+    <div class="privacy-actions">
+      <button class="button consent-essential" type="button" data-consent-choice="essential">Use essential only</button>
+      <button class="button primary" type="button" data-consent-choice="preferences">Allow preferences</button>
+    </div>
+  </dialog>
+
+  <dialog id="projectModal">
+    <button class="modal-close" aria-label="Close project details">×</button>
+    <p class="modal-label">Project case study</p>
+    <h2 id="modalTitle"></h2>
+    <p id="modalDescription"></p>
+    <div class="modal-tech" id="modalTech"></div>
+  </dialog>
+
+  <script
+    src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+    async
+    defer>
+  </script>
+  <script src="script.js?v=9"></script>
+</body>
+</html>
